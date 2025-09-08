@@ -3,10 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parte del Computador</title>
+    <title>Partes del Computador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Estos estilos se moverán a main.css, pero los mantenemos aquí temporalmente para referencia */
+        /* Se recomienda mover todo a main.css para una mejor organización */
+    </style>
 </head>
 <body>
-    <h1>Bienvenido a Partes del Computador</h1>
-    <p>Este es un sitio web sobre las partes de un computador.</p>
+    <!-- Pantalla de Carga -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+
+    <header>
+        <img src="img/escudo.jpg" alt="Logo" id="page-logo">
+        <div class="header-title-container">
+            <h1>PART'S COMPU!</h1>
+            <h2>Explorando tu computador..</h2>
+        </div>
+        <button id="global-home-btn" data-target="welcome-screen" style="display: none;" aria-label="Volver a la página principal">🏠</button>
+    </header>
+    <main class="container">
+        <!-- Pantalla de Bienvenida -->
+        <div id="welcome-screen" class="view active">
+            <h2 tabindex="-1">¡Hola, Mega explorador! 🔎</h2>
+            <p class="welcome-subtitle">Escribe tu nombre para empezar esta aventura Técnologica..</p>
+            <input type="text" id="student-name" placeholder="Tu nombre aquí">
+            <button id="start-btn">¡Comenzar!</button>
+        </div>
+
+        <!-- Menú Principal -->
+        <div id="main-menu" class="view">
+            <div class="welcome-header">
+                <div class="chipito-container">
+                    <img src="img/tenor.gif" alt="Personaje de bienvenida Chipito" id="welcome-char" title="¡Haz clic para un dato curioso!">
+                    <div id="chipito-tip-bubble" class="speech-bubble" style="display: none;"></div>
+                </div>
+                <h2 id="welcome-message"></h2>
+            </div>
+            <p>¿Qué te gustaría aprender hoy?</p>
+            <div class="menu-buttons">
+                <button class="menu-btn" data-target="hardware-menu">
+                    <img src="img/monitor animado.jpg" alt="Icono de Hardware">
+                    <span>Hardware (Las partes que puedes tocar)</span>
+                </button>
+                <button class="menu-btn" data-target="software-menu">
+                    <img src="img/software.png" alt="Icono de Software">
+                    <span>Software (Los programas y apps)</span>
+                </button>
+                <button class="menu-btn" data-target="glossary-view">
+                    <img src="img/glosario.jpg" alt="Icono de Glosario">
+                    <span>Glosario de Términos</span>
+                </button>
+                <button class="menu-btn" data-target="drag-drop-game">
+                    <img src="img/juegos.jpg" alt="Icono de Juego">
+                    <span>Juego: Arrastra y Suelta</span>
+                </button>
+            </div>
+            <button class="back-btn" id="logout-btn" data-target="welcome-screen">🚪 Salir y cambiar de usuario</button>
+        </div>
+
+        <!-- Menú de Hardware -->
+        <div id="hardware-menu" class="view">
+            <h2 tabindex="-1">Hardware: ¡Las piezas del computador!</h2>
+            <!-- Barra de Progreso -->
+            <div class="progress-container">
+                <div id="hardware-progress-bar" class="progress-bar"></div>
+            </div>
+            <p id="progress-text">Progreso: 0 de 5</p>
+
+            <p>Elige una parte para saber más sobre ella.</p>
+            <div class="card-container">
+                <button class="card" data-target="info-torre">
+                    <img src="img/icon-torre.png" alt="Icono de Torre">
+                    <span>La Torre</span>
+                </button>
+                <button class="card" data-target="info-mouse">
+                    <img src="img/icon-mouse.png" alt="Icono de Mouse">
+                    <span>El Mouse</span>
+                </button>
+                <button class="card" data-target="info-pantalla">
+                    <img src="img/icon-pantalla.png" alt="Icono de Pantalla">
+                    <span>La Pantalla</span>
+                </button>
+                <button class="card" data-target="info-teclado">
+                    <img src="img/TECLADO.png" alt="Icono de Teclado">
+                    <span>El Teclado</span>
+                </button>
+                <button class="card" data-target="info-discoDuro">
+                    <img src="img/icon-disco.png" alt="Icono de Disco Duro">
+                    <span>El Disco Duro</span>
+                </button>
+            </div>
+            <button class="back-btn" data-target="main-menu">🏠 Volver al menú</button>
+        </div>
+
+        <!-- Vistas de Información -->
+        <div id="info-torre" class="view info-view">
+            <h2 tabindex="-1">La Torre (o Gabinete)</h2>
+            <img src="img/hardware-torre.jpg" alt="Imagen de una torre de computador">
+            <p>La torre es como la casa de los componentes más importantes. ¡Es el cuerpo del computador! Dentro de ella viven el cerebro, la memoria y mucho más.</p>
+            <div class="button-group">
+                <button class="back-btn" data-target="info-mouse">CONTINUAR..</button>
+                <button class="home-btn" data-target="main-menu">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <div id="info-mouse" class="view info-view">
+            <h2 tabindex="-1">El Mouse (o Ratón)</h2>
+            <img src="img/hardware-mouse.jpg" alt="Imagen de un mouse">
+            <p>El mouse es como tu mano dentro de la pantalla. Te permite hacer clic, señalar y mover cosas en el computador. ¡Es súper útil para jugar y dibujar!</p>
+            <div class="button-group">
+                <button class="back-btn" data-target="info-pantalla">CONTINUAR..</button>
+                <button class="home-btn" data-target="main-menu">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <div id="info-pantalla" class="view info-view">
+            <h2 tabindex="-1">La Pantalla (o Monitor)</h2>
+            <img src="img/hardware-pantalla.jpg" alt="Imagen de una pantalla">
+            <p>La pantalla es la ventana mágica que te muestra todo lo que pasa en el computador: tus juegos, los videos, los dibujos y las letras que escribes.</p>
+            <div class="button-group">
+                <button class="back-btn" data-target="info-teclado">CONTINUAR..</button>
+                <button class="home-btn" data-target="main-menu">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <div id="info-teclado" class="view info-view">
+            <h2 tabindex="-1">El Teclado</h2>
+            <img src="img/hardware-teclado.jpg" alt="Imagen de un teclado">
+            <p>Con el teclado puedes escribir. Cada tecla es una letra, un número o un símbolo. ¡Es como hablar con el computador usando tus dedos!</p>
+            <div class="button-group">
+                <button class="back-btn" data-target="info-discoDuro">CONTINUAR..</button>
+                <button class="home-btn" data-target="main-menu">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <div id="info-discoDuro" class="view info-view">
+            <h2 tabindex="-1">El Disco Duro</h2>
+            <img src="img/hardware-disco.jpg" alt="Imagen de un disco duro">
+            <p>El disco duro es el baúl de los tesoros del computador. Aquí se guardan para siempre tus juegos, fotos, tareas y todo lo que no quieres que se pierda.</p>
+            <div class="button-group">
+                <button class="back-btn" data-target="hardware-quiz">¡Empezar Quiz!</button>
+                <button class="home-btn" data-target="main-menu">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Vista del Quiz de Hardware -->
+        <div id="hardware-quiz" class="view">
+            <h2 tabindex="-1">📝 Quiz de Hardware</h2>
+            <img src="img/tenor.gif" alt="Chipito" class="quiz-char" id="hw-quiz-char">
+            <div id="quiz-container">
+                <div class="progress-container">
+                    <div id="hw-quiz-progress-bar" class="progress-bar"></div>
+                </div>
+                <img id="quiz-image" class="quiz-image" src="" alt="Imagen de la pregunta del quiz" style="display: none;">
+                <p id="quiz-question" class="quiz-question-text"></p>
+                <div id="quiz-options" class="quiz-options-container">
+                    <!-- Las opciones se generarán con JavaScript -->
+                </div>
+                <p id="quiz-feedback" aria-live="polite"></p>
+            </div>
+        </div>
+
+        <!-- Vista de Resultados del Quiz -->
+        <div id="quiz-results" class="view">
+            <h2 tabindex="-1">¡Quiz Completado!</h2>
+            <img src="img/tenor.gif" alt="Chipito" class="quiz-char" id="hw-results-char">
+            <p id="quiz-score"></p>
+            <p id="quiz-final-message"></p>
+            <button class="back-btn" data-target="hardware-menu">Volver a Hardware</button>
+        </div>
+
+        <!-- Menú de Software -->
+        <div id="software-menu" class="view">
+            <h2 tabindex="-1">Software: ¡La magia del computador!</h2>
+            <!-- Barra de Progreso -->
+            <div class="progress-container">
+                <div id="software-progress-bar" class="progress-bar"></div>
+            </div>
+            <p id="software-progress-text">Progreso: 0 de 4</p>
+
+            <p>Elige un tipo de software para saber más.</p>
+            <div class="card-container">
+                <button class="card" data-target="info-so">
+                    <img src="img/icon-so.png" alt="Icono de Sistema Operativo">
+                    <span>Sistemas Operativos</span>
+                </button>
+                <button class="card" data-target="info-apps">
+                    <img src="img/icon-apps.png" alt="Icono de Aplicaciones">
+                    <span>Aplicaciones</span>
+                </button>
+                <button class="card" data-target="info-utils">
+                    <img src="img/icon-utils.png" alt="Icono de Utilitarios">
+                    <span>Utilitarios</span>
+                </button>
+                <button class="card" data-target="info-dev">
+                    <img src="img/icon-dev.png" alt="Icono de Desarrollo">
+                    <span>Desarrollo</span>
+                </button>
+            </div>
+            <button class="back-btn" data-target="main-menu">🏠 Volver al menú</button>
+        </div>
+
+        <!-- Vistas de Información de Software -->
+        <div id="info-so" class="view info-view">
+            <h2 tabindex="-1">Sistemas Operativos (SO)</h2>
+            <img src="img/software-so.jpg" alt="Iconos de Sistemas Operativos">
+            <p>El Sistema Operativo es el jefe del computador. Organiza todo, se asegura de que los programas funcionen y te permite interactuar con la máquina. ¡Como Windows, macOS o Android en los teléfonos!</p>
+            <div class="button-group">
+                <button class="back-btn" data-target="info-apps">CONTINUAR..</button>
+                <button class="home-btn" data-target="main-menu">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <div id="info-apps" class="view info-view">
+            <h2 tabindex="-1">Software de Aplicación</h2>
+            <img src="img/software-apps.jpg" alt="Iconos de Aplicaciones">
+            <p>Son los programas que usas para hacer tareas divertidas o importantes: tus videojuegos favoritos, las apps para dibujar, el navegador para ver videos o el procesador de texto para escribir tareas.</p>
+            <div class="button-group">
+                <button class="back-btn" data-target="info-utils">CONTINUAR..</button>
+                <button class="home-btn" data-target="main-menu">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <div id="info-utils" class="view info-view">
+            <h2 tabindex="-1">Software Utilitario</h2>
+            <img src="img/software-utils.jpg" alt="Iconos de Utilitarios">
+            <p>Estos programas son los mecánicos y doctores del computador. Ayudan a mantenerlo seguro (antivirus), limpio (limpiadores de disco) y funcionando bien. ¡Son los superhéroes del mantenimiento!</p>
+            <div class="button-group">
+                <button class="back-btn" data-target="info-dev">CONTINUAR..</button>
+                <button class="home-btn" data-target="main-menu">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <div id="info-dev" class="view info-view">
+            <h2 tabindex="-1">Software de Desarrollo</h2>
+            <img src="img/software-dev.jpg" alt="Iconos de Desarrollo">
+            <p>Estas son las herramientas que usan los programadores para crear todos los programas y aplicaciones que usas. ¡Son como los ladrillos y martillos para construir casas digitales!</p>
+            <div class="button-group">
+                <button class="back-btn" data-target="software-quiz">¡Empezar Quiz!</button>
+                <button class="home-btn" data-target="main-menu">🏠 Ir al Inicio</button>
+            </div>
+        </div>
+
+        <!-- Vista del Quiz de Software -->
+        <div id="software-quiz" class="view">
+            <h2 tabindex="-1">📝 Quiz de Software</h2>
+            <img src="img/tenor.gif" alt="Chipito" class="quiz-char" id="sw-quiz-char">
+            <div id="sw-quiz-container">
+                <div class="progress-container">
+                    <div id="sw-quiz-progress-bar" class="progress-bar"></div>
+                </div>
+                <img id="sw-quiz-image" class="quiz-image" src="" alt="Imagen de la pregunta del quiz de software" style="display: none;">
+                <p id="sw-quiz-question" class="quiz-question-text"></p>
+                <div id="sw-quiz-options" class="quiz-options-container">
+                    <!-- Las opciones se generarán con JavaScript -->
+                </div>
+                <p id="sw-quiz-feedback" aria-live="polite"></p>
+            </div>
+        </div>
+
+        <!-- Vista de Resultados del Quiz de Software -->
+        <div id="software-quiz-results" class="view">
+            <h2 tabindex="-1">¡Quiz de Software Completado!</h2>
+            <img src="img/tenor.gif" alt="Chipito" class="quiz-char" id="sw-results-char">
+            <p id="sw-quiz-score"></p>
+            <p id="sw-quiz-final-message"></p>
+            <button class="back-btn" data-target="software-menu">Volver a Software</button>
+        </div>
+
+        <!-- Vista de Créditos -->
+        <div id="credits-view" class="view">
+            <h2 tabindex="-1">Créditos</h2>
+            <p>Esta aplicación fue creada con mucho cariño por:</p>
+            <ul class="credits-list">
+                <li>Natalia Gomez</li>
+                <li>Mariana Diaz</li>
+                <li>Karen Martinez</li>
+            </ul>
+            <p>Como parte del proyecto de la Técnica en Programación de Software.</p>
+            <p><strong>Megacolegio - SENA 2025</strong></p>
+            <div class="credits-logos-container">
+                <img src="img/escudo1.png" alt="Logo del Colegio" class="credits-logo">
+                <img src="img/logoSena.png" alt="Logo del SENA" class="credits-logo">
+            </div>
+            <button class="back-btn" data-target="main-menu">Volver al Menú Principal</button>
+        </div>
+
+        <!-- Vista de Glosario -->
+        <div id="glossary-view" class="view">
+            <h2 tabindex="-1">Glosario de Términos</h2>
+            <div class="glossary-container">
+                <div class="glossary-term">
+                    <h3>Hardware</h3>
+                    <p>Son todas las partes físicas y tangibles de un computador, como el mouse, el teclado, la pantalla y la torre.</p>
+                </div>
+                <div class="glossary-term">
+                    <h3>Software</h3>
+                    <p>Son los programas, instrucciones y aplicaciones que le dicen al hardware qué hacer. No se pueden tocar.</p>
+                </div>
+                <div class="glossary-term">
+                    <h3>Sistema Operativo (SO)</h3>
+                    <p>Es el software más importante. Actúa como el "jefe" del computador, gestionando todos los recursos y permitiendo que otros programas funcionen. Ejemplos: Windows, macOS, Linux.</p>
+                </div>
+                <div class="glossary-term">
+                    <h3>CPU (Procesador)</h3>
+                    <p>Es el "cerebro" del computador. Realiza todos los cálculos y ejecuta las instrucciones de los programas.</p>
+                </div>
+                <div class="glossary-term">
+                    <h3>Aplicación (App)</h3>
+                    <p>Un programa diseñado para que el usuario realice una tarea específica, como un videojuego, un editor de texto o un navegador web.</p>
+                </div>
+                <div class="glossary-term">
+                    <h3>Disco Duro</h3>
+                    <p>Es el dispositivo que almacena todos tus archivos y programas a largo plazo, incluso cuando el computador está apagado.</p>
+                </div>
+                <div class="glossary-term">
+                    <h3>Mouse (Ratón)</h3>
+                    <p>Un dispositivo de entrada que te permite mover un puntero en la pantalla para seleccionar, hacer clic y mover objetos.</p>
+                </div>
+            </div>
+            <div class="button-group">
+                <button class="back-btn" data-target="main-menu">Volver al Menú Principal</button>
+                <button id="print-glossary-btn">🖨️ Imprimir Glosario</button>
+            </div>
+        </div>
+
+        <!-- Vista del Juego Drag and Drop -->
+        <div id="drag-drop-game" class="view">
+            <h2 tabindex="-1">¡A Jugar! Arrastra y Suelta</h2>
+
+            <div id="difficulty-selection">
+                <p>Elige un nivel de dificultad:</p>
+                <div class="button-group">
+                    <button class="difficulty-btn" data-difficulty="easy">Fácil (Hardware)</button>
+                    <button class="difficulty-btn" data-difficulty="hard">Difícil (Todo)</button>
+                    <button class="difficulty-btn expert" data-difficulty="expert">Experto (Solo Texto)</button>
+                </div>
+            </div>
+
+            <div id="game-wrapper" style="display: none;">
+                <p>Arrastra el nombre del componente y suéltalo sobre su imagen correcta.</p>
+                <div id="game-timer-container">
+                    Tiempo restante: <span id="game-timer">90</span>s
+                </div>
+                <div id="game-feedback" aria-live="polite"></div>
+                <div class="game-container">
+                    <div id="names-container" class="names-container"></div>
+                    <div id="dropzones-container" class="dropzones-container"></div>
+                </div>
+                <button id="reset-game-btn">Reiniciar Juego</button>
+                <button class="back-btn" data-target="main-menu">Volver al Menú</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Página Parts Compu - Derechos Reservados</p>    
+            <p>Técnica en Programacion de Software Megacolegio - Sena</p>
+        </div>
+        <button class="menu-btn-small" data-target="credits-view">Créditos</button>
+    </footer>
+
+    <!-- Elementos de audio para los efectos de sonido -->
+    <audio id="click-sound" src="sounds/click.mp3" preload="auto"></audio>
+    <audio id="fanfare-sound" src="sounds/fanfare.mp3" preload="auto"></audio>
+    <audio id="correct-sound" src="sounds/correct.mp3" preload="auto"></audio>
+    <audio id="incorrect-sound" src="sounds/incorrect.mp3" preload="auto"></audio>
+
+    <!-- Librería para el efecto de confeti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <script src="scripts/interactive.js"></script>
+
 </body>
 </html>
